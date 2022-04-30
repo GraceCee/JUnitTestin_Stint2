@@ -53,63 +53,59 @@ public class SMSChecker {
 
     }
 
-//    public static boolean rightDateFormat(final String date){
-//        boolean res = false;
-//
-//        try {
-//
-//
-//            LocalDate.parse(date,
-//                    DateTimeFormatter.ofPattern("uuuu-MM-dd")  //"uuuu-M-d"
-//                            .withResolverStyle(ResolverStyle.STRICT)
-//            );
-//
-//            res = true;
-//
-//        } catch (DateTimeParseException e) {
-//            e.printStackTrace();
-//            res = false;
-//
-//        } finally {
-//            return res;
-//        }
-//
-//    }
-
-//    public static boolean rightDateFormat(String Bdate) {
-//        try {
-//            formatter.parse(Bdate);
-//            return true;
-//        } catch (DateTimeParseException e) {
-//            return false;
-//        }
-//    }
-
     public static boolean rightDateFormat(final String date){
         boolean res = false;
 
-        ParsePosition pp = new ParsePosition(0);
-
         try {
-            TemporalAccessor t =
-                    DateTimeFormatter.ofPattern("uuuu-MM-dd")
-                            .withResolverStyle(ResolverStyle.STRICT)
-                            .parseUnresolved("2015-02-29", pp);
-            System.out.println("Info! " + t + "/" + pp); // note, no error in pp here!
-            // Info! {DayOfMonth=29, MonthOfYear=2, Year=2015},null,null/java.text.ParsePosition[index=10,errorIndex=-1]
-            boolean leapyear = Year.from(t).isLeap();
-            MonthDay md = MonthDay.from(t);
-            if (!leapyear && md.getDayOfMonth() == 29 && md.getMonth().getValue() == 2) {
-                System.out.println("Error!"); // hand-made validation covering a special case
-            }
-        } catch (RuntimeException e) {
-            e.printStackTrace(); // does not happen for given input
 
-        }finally {
+
+            LocalDate.parse(date,
+                    DateTimeFormatter.ofPattern("uuuu-MM-dd")  //"uuuu-M-d"
+                            .withResolverStyle(ResolverStyle.STRICT)
+            );
+
+            res = true;
+
+        } catch (DateTimeParseException e) {
+            e.printStackTrace();
+            res = false;
+
+        } finally {
             return res;
-            adfasdfasdfasdfs
         }
+
     }
+
+
+
+//    public static boolean rightDateFormat(final String date){
+//        boolean res = true;
+//
+//        ParsePosition pp = new ParsePosition(0);
+//
+//        try {
+//            TemporalAccessor t =
+//                    DateTimeFormatter.ofPattern("uuuu-MM-dd")
+//                            .withResolverStyle(ResolverStyle.STRICT)
+//                            .parseUnresolved("2015-02-29", pp);
+//            System.out.println("Info! " + t + "/" + pp); // note, no error in pp here!
+//            // Info! {DayOfMonth=29, MonthOfYear=2, Year=2015},null,null/java.text.ParsePosition[index=10,errorIndex=-1]
+//            boolean leapyear = Year.from(t).isLeap();
+//            MonthDay md = MonthDay.from(t);
+//            if (!leapyear && md.getDayOfMonth() == 29 && md.getMonth().getValue() == 2) {
+//                System.out.println("Error!"); // hand-made validation covering a special case
+//            }
+//        } catch (RuntimeException e) {
+//            e.printStackTrace(); // does not happen for given input
+//
+//        }finally {
+//            return res;
+//        }
+//
+//
+//
+//
+//    }
 
 
 
@@ -150,7 +146,7 @@ public class SMSChecker {
             return false;
         }
 
-        // INVALID DATE FORMAT
+//         INVALID DATE FORMAT
         if (!rightDateFormat(ui.getBdate())) {
             return false;
         }
@@ -192,11 +188,15 @@ public class SMSChecker {
     }
 
     public static void main(String[] args) {
-//        UserInformation ui = separator  ("   Marco Valmores   ,    1973-09-10    ,     Marikina City   ");
-//        System.out.println(stringArray("asdf jkl; 2qewq zxcvouio asdfasdf, asdfasdfasdf"));
-//        System.out.println(hasWhiteSpace(" aaa "));
+        UserInformation ui = separator  ("   Marco Valmores   ,    1973-09-10    ,     Marikina City   ");
+        System.out.println(stringArray("asdf jkl; 2qewq zxcvouio asdfasdf, asdfasdfasdf"));
+        System.out.println(hasWhiteSpace(" aaa "));
 
-        rightDateFormat()
+
+
+
+
+
 
 
 

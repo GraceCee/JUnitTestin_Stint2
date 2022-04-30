@@ -104,15 +104,14 @@ public class TestSMSChecker {
         testSMS1.setMessage("Marco Valmores, 1973-09-10, Marikina City");
         testSMS2.setMessage("  Marco Valmores  , 1973-09-10,   Marikina City  ");
         testSMS3.setMessage("MarcoValmores, 1973-09-10, Marikina City");
-        testSMS4.setMessage("Marco Valmores, 1973-19-10, Marikina City");
-        testSMS5.setMessage("Marco Valmores, 1973-09-10, Marikina C");
-        testSMS6.setMessage("Marco Valmores, 1973-09-10, Marikina City");
+        testSMS4.setMessage("Marco Valmores, 1973-09-10, Marikina C");
+        testSMS5.setMessage("Marco Valmores, -1973-09-10, Marikina City");
 
         assertTrue(SMSChecker.validtextFormat(testSMS1));
         assertFalse(SMSChecker.validtextFormat(testSMS2));
         assertFalse(SMSChecker.validtextFormat(testSMS3));
         assertFalse(SMSChecker.validtextFormat(testSMS4));
-        assertFalse(SMSChecker.validtextFormat(testSMS5));
+        assertTrue(SMSChecker.validtextFormat(testSMS5));
 
 
     }
